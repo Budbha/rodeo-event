@@ -1,5 +1,5 @@
 /* RODEO EVENT V6.1 — animations isolated from booking & translation logic. */
-(() => {
+export function setupMotion() {
   'use strict';
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (reduced.matches || !('IntersectionObserver' in window)) return;
@@ -84,4 +84,4 @@
     window.removeEventListener('scroll',schedule);
     window.removeEventListener('resize',schedule);
   });
-})();
+}

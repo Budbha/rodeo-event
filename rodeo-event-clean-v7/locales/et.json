@@ -1,0 +1,143 @@
+{
+  "a11y": {
+    "skip": "Liigu sisu juurde",
+    "mainNav": "Peamenüü",
+    "standardTariff": "Tavarent",
+    "extendedTariff": "Pikem rent",
+    "festivalTariff": "Festivalid ja suurüritused",
+    "requestPreview": "Päringu tekst",
+    "language": "Keele valik"
+  },
+
+  "nav": {
+    "prices": "Hinnad",
+    "included": "Mida hind sisaldab",
+    "safety": "Ohutus",
+    "contacts": "Kontakt",
+    "book": "SAADA PÄRING"
+  },
+
+  "hero": {
+    "imageAlt": "RODEO EVENTi päris mehaaniline pull must-punases täispuhutavas areenis",
+    "imageCaption": "MEIE PÄRIS ATRAKTSIOON",
+    "kicker": "MEHAANILISE PULLI RENT EESTIS",
+    "title1": "SINU ÜRITUSE",
+    "title2": "VAIELDAMATU",
+    "title3": "TÕMBENUMBER.",
+    "title4": "",
+    "lead": "Mehaanilise pulli premium-rent Eestis. Firmapeod, festivalid, sünnipäevad, meeskonnaüritused ja suvepäevad.",
+    "description": "Adrenaliin, põnevus ja unustamatud emotsioonid sinu külalistele – kõik vajaliku korraldame meie.",
+    "book": "BRONEERI ATRAKTSIOON",
+    "prices": "VAATA HINDU"
+  },
+  "events": {
+    "corporate": "FIRMAPEOD",
+    "festivals": "FESTIVALID",
+    "birthdays": "SÜNNIPÄEVAD",
+    "summer": "SUVEPÄEVAD"
+  },
+  "pricing": {
+    "kicker": "RENT JA HINNAD",
+    "title1": "SELGE",
+    "title2": "HIND.",
+    "title3": "VÕIMAS ELAMUS.",
+    "intro": "Vali sobiv rendiaeg. Juhendaja, paigaldus ja Tallinna-sisene transport on juba hinna sees.",
+    "listCaption": "VALI SOBIV LAHENDUS",
+    "standardTitle": "TAVARENT",
+    "standardDescription": "1–2 tunniks. Sünnipäevadeks ja väiksemateks üritusteks.",
+    "perHour": "/ TUND",
+    "extendedTitle": "PIKEM RENT",
+    "extendedDescription": "Iga lisatund alates kolmandast. Pikemateks firmaüritusteks ja suvepäevadeks.",
+    "perAdditionalHour": "/ LISATUND",
+    "festivalTitle": "FESTIVALID JA SUURÜRITUSED",
+    "festivalDescription": "Paindlik pakkumine vastavalt ürituse kestusele, formaadile ja külaliste arvule.",
+    "onRequest": "KOKKULEPPEL",
+    "explanation": "Näide: 3 tundi = 320 €, 4 tundi = 400 €. Esimesed kaks tundi maksavad 120 €/tund, iga järgnev tund 80 €. Väljaspool Tallinna lisanduvad kokkulepitud transporditingimused.",
+    "customNote": "Suurürituse täpne hind sõltub tingimustest.",
+    "invalidHours": "Vali 1–24 täistundi."
+  },
+  "included": {
+    "kicker": "KÕIK HINNAS",
+    "title1": "KÕIK ON",
+    "title2": "LÄBI MÕELDUD.",
+    "lead": "Meie hoolitseme atraktsiooni eest, et sina saaksid üritust nautida.",
+    "instructorTitle": "PROFESSIONAALNE JUHENDAJA",
+    "instructorDescription": "Juhib atraktsiooni ja reguleerib kiirust kogu rendiperioodi vältel.",
+    "setupTitle": "PAIGALDUS JA DEMONTAAŽ",
+    "setupDescription": "Saabume 30–40 minutit varem. Seadistamine ja mahavõtmine ei vähenda sinu tasulist rendiaega.",
+    "deliveryTitle": "TRANSPORT",
+    "deliveryDescription": "Tallinnas tasuta. Mujale Eestisse kokkuleppel.",
+    "note": "Hinnas sisalduvate teenuste eest varjatud lisatasusid ei ole.",
+    "photoAlt": "RODEO EVENTi päris atraktsioon külgvaates, must-punane täispuhutav areen",
+    "photoCaption": "PÄRIS VARUSTUS / 02"
+  },
+  "safety": {
+    "kicker": "OHUTUS JA TEHNILISED NÕUDED",
+    "title1": "OHUTUS",
+    "title2": "ESIKOHAL.",
+    "description": "Tugev täispuhutav kaitseala pehmendab kukkumisi. Juhendaja valib osalejale sobiva kiiruse ja peatab atraktsiooni kukkumise korral kohe.",
+    "meters": "m",
+    "space": "Tasane ja vaba paigaldusala",
+    "ceiling": "Minimaalne lae kõrgus siseruumides",
+    "volts": "V",
+    "power": "Tavaline elektripistikupesa"
+  },
+  "booking": {
+    "kicker": "PÄRING / BRONEERIMINE",
+    "title1": "VALMIS",
+    "title2": "RODEOKS?",
+    "description": "Sinu üritus. Meie toome põnevuse. Anna teada kuupäev, asukoht ja kestus – täpsustame üksikasjad koos.",
+    "formTitle": "RÄÄGI OMA ÜRITUSEST",
+    "formSubtitle": "Täida vorm ja koosta päring. Automaatne saatmine pole veel ühendatud.",
+    "name": "NIMI *",
+    "namePlaceholder": "Kuidas sind kutsuda?",
+    "contact": "TELEFON VÕI E-POST *",
+    "contactPlaceholder": "Tagasisideks",
+    "date": "ÜRITUSE KUUPÄEV",
+    "location": "ASUKOHT",
+    "locationPlaceholder": "Näiteks Tallinn",
+    "type": "ÜRITUSE TÜÜP",
+    "typePrivate": "Sünnipäev / erapidu",
+    "typeCorporate": "Firmapidu / suvepäevad",
+    "typeFestival": "Festival / suurüritus",
+    "typeOther": "Muu",
+    "hours": "RENDI KESTUS (TUNDIDES)",
+    "notes": "LISATEAVE",
+    "notesPlaceholder": "Mida peaksime veel teadma?",
+    "estimateLabel": "ESIALGNE HIND",
+    "estimateDelivery": "Tallinnas tasuta transport. Mujal kokkuleppel.",
+    "prepare": "KOOSTA PÄRING",
+    "submissionNote": "Päringu koostamine ei tähenda selle saatmist ega kinnitatud broneeringut.",
+    "draftTitle": "PÄRINGU MUSTAND ON VALMIS",
+    "copy": "KOPEERI PÄRING"
+  },
+  
+"footer": {
+  "description": "Mehaanilise pulli premium-rent Eestis. Tallinnas tasuta transport, mujal kokkuleppel.",
+  "top": "ÜLES",
+  "disclaimer": "Broneerimispäringu automaatne saatmine tuleb enne avaldamist ühendada. Fotodel on meie päris atraktsioon.",
+  "contactsTitle1": "TEKKIS KÜSIMUS?",
+  "contactsTitle2": "VÕTA MEIEGA ÜHENDUST.",
+  "contactsDescription": "Aitame valida sobiva rendiaja ja korraldada atraktsiooni sinu üritusele."
+},
+  "meta": {
+    "title": "RODEO EVENT — mehaanilise pulli rent Eestis",
+    "description": "RODEO EVENT — mehaanilise pulli premium-rent Eestis. Hinnad, transport, paigaldus, juhendaja ja päring."
+  },
+  "request": {
+    "title": "RODEO EVENT — päringu mustand (saatmata)",
+    "name": "Nimi",
+    "contact": "Kontakt",
+    "date": "Kuupäev",
+    "location": "Toimumiskoht",
+    "event": "Üritus",
+    "duration": "Rendi kestus",
+    "hourUnit": "tundi",
+    "estimate": "Esialgne hind",
+    "notes": "Lisainfo",
+    "transport": "Transport väljaspool Tallinna kokkuleppel.",
+    "askPrice": "Kokkuleppel",
+    "copied": "Kopeeritud. Päring pole saadetud.",
+    "copyManually": "Tekst on valitud. Vajuta Ctrl+C."
+  }
+}
