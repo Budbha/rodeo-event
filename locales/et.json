@@ -88,7 +88,7 @@
     "title2": "RODEOKS?",
     "description": "Sinu üritus. Meie toome põnevuse. Anna teada kuupäev, asukoht ja kestus – täpsustame üksikasjad koos.",
     "formTitle": "RÄÄGI OMA ÜRITUSEST",
-    "formSubtitle": "Täida vorm ja koosta päring. Automaatne saatmine pole veel ühendatud.",
+    "formSubtitle": "Täida vorm ja me võtame sinuga ühendust detailide täpsustamiseks ja broneerimiseks.",
     "name": "NIMI *",
     "namePlaceholder": "Kuidas sind kutsuda?",
     "contact": "TELEFON VÕI E-POST *",
@@ -106,16 +106,21 @@
     "notesPlaceholder": "Mida peaksime veel teadma?",
     "estimateLabel": "ESIALGNE HIND",
     "estimateDelivery": "Tallinnas tasuta transport. Mujal kokkuleppel.",
-    "prepare": "KOOSTA PÄRING",
-    "submissionNote": "Päringu koostamine ei tähenda selle saatmist ega kinnitatud broneeringut.",
-    "draftTitle": "PÄRINGU MUSTAND ON VALMIS",
+    "prepare": "SAADA PÄRING",
+    "sending": "SAATMINE...",
+    "submissionNote": "Päring saadetakse meie e-postile. Lõplik broneering kinnitatakse pärast detailide kooskõlastamist.",
+    "successTitle": "PÄRING EDUKALT SAADETUD!",
+    "successMessage": "Aitäh! Oleme saanud sinu päringu ja võtame peagi ühendust detailide täpsustamiseks.",
+    "errorTitle": "PÄRINGU SAATMINE EBAÕNNESTUS",
+    "errorMessage": "Päringu automaatsel saatmisel tekkis viga. Kopeeri allolev päring ja saada see aadressile rodeorent1@gmail.com või helista meile.",
+    "draftTitle": "PÄRINGU TEKST",
     "copy": "KOPEERI PÄRING"
   },
   
 "footer": {
   "description": "Mehaanilise pulli premium-rent Eestis. Tallinnas tasuta transport, mujal kokkuleppel.",
   "top": "ÜLES",
-  "disclaimer": "Broneerimispäringu automaatne saatmine tuleb enne avaldamist ühendada. Fotodel on meie päris atraktsioon.",
+  "disclaimer": "Fotodel on meie päris atraktsioon. Transport ja paigaldus Tallinnas on hinna sees.",
   "contactsTitle1": "TEKKIS KÜSIMUS?",
   "contactsTitle2": "VÕTA MEIEGA ÜHENDUST.",
   "contactsDescription": "Aitame valida sobiva rendiaja ja korraldada atraktsiooni sinu üritusele."
@@ -125,7 +130,7 @@
     "description": "RODEO EVENT — mehaanilise pulli premium-rent Eestis. Hinnad, transport, paigaldus, juhendaja ja päring."
   },
   "request": {
-    "title": "RODEO EVENT — päringu mustand (saatmata)",
+    "title": "RODEO EVENT — broneerimispäring",
     "name": "Nimi",
     "contact": "Kontakt",
     "date": "Kuupäev",
@@ -137,7 +142,7 @@
     "notes": "Lisainfo",
     "transport": "Transport väljaspool Tallinna kokkuleppel.",
     "askPrice": "Kokkuleppel",
-    "copied": "Kopeeritud. Päring pole saadetud.",
+    "copied": "Kopeeritud lõikelauale.",
     "copyManually": "Tekst on valitud. Vajuta Ctrl+C."
   }
 }

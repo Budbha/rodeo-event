@@ -150,7 +150,7 @@
         <img class="booking-watermark" src="assets/bull-mark.png" alt="" aria-hidden="true">
       </div>
       <div class="booking-form-wrap">
-        <div class="form-head"><h3 data-i18n="booking.formTitle">РАССКАЖИТЕ О МЕРОПРИЯТИИ</h3><p data-i18n="booking.formSubtitle">Заполните форму, чтобы подготовить заявку. Автоматическая отправка пока не подключена.</p></div>
+        <div class="form-head"><h3 data-i18n="booking.formTitle">РАССКАЖИТЕ О МЕРОПРИЯТИИ</h3><p data-i18n="booking.formSubtitle">Заполните форму, и мы свяжемся с вами для согласования деталей и бронирования.</p></div>
         <form id="booking-form">
           <div class="fields">
             <label><span data-i18n="booking.name">ИМЯ *</span><input type="text" name="name" autocomplete="name" required placeholder="Как к вам обращаться?" data-i18n-placeholder="booking.namePlaceholder"></label>
@@ -162,10 +162,18 @@
             <label class="full"><span data-i18n="booking.notes">ПОЖЕЛАНИЯ И ДЕТАЛИ</span><textarea name="notes" rows="3" placeholder="Что ещё важно знать о мероприятии?" data-i18n-placeholder="booking.notesPlaceholder"></textarea></label>
           </div>
           <div class="estimate" role="status" aria-live="polite"><span data-i18n="booking.estimateLabel">ПРЕДВАРИТЕЛЬНАЯ СТОИМОСТЬ</span><strong id="estimate-price">240 €</strong><small id="estimate-note" data-i18n="booking.estimateDelivery">Доставка по Таллинну бесплатно. В другие города — по договорённости.</small></div>
-          <button type="submit" class="button button-red send-button"><span data-i18n="booking.prepare">ПОДГОТОВИТЬ ЗАЯВКУ</span><span aria-hidden="true">↗</span></button>
-          <p class="submission-note" data-i18n="booking.submissionNote">Подготовка заявки не означает её отправку или подтверждение бронирования.</p>
+          <button type="submit" class="button button-red send-button"><span data-i18n="booking.prepare">ОТПРАВИТЬ ЗАЯВКУ</span><span aria-hidden="true">↗</span></button>
+          <p class="submission-note" data-i18n="booking.submissionNote">Заявка отправляется нам на email. Окончательное бронирование подтверждается после согласования деталей.</p>
+          <div class="booking-status booking-success" id="booking-success" hidden role="status" aria-live="polite">
+            <h4 data-i18n="booking.successTitle">ЗАЯВКА УСПЕШНО ОТПРАВЛЕНА!</h4>
+            <p data-i18n="booking.successMessage">Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время для подтверждения деталей.</p>
+          </div>
+          <div class="booking-status booking-error" id="booking-error" hidden role="alert">
+            <h4 data-i18n="booking.errorTitle">НЕ УДАЛОСЬ ОТПРАВИТЬ ЗАЯВКУ</h4>
+            <p data-i18n="booking.errorMessage">Произошла ошибка при отправке. Вы можете скопировать данные заявки ниже и отправить на rodeorent1@gmail.com или позвонить нам.</p>
+          </div>
           <div class="request-result" id="request-result" hidden>
-            <h4 data-i18n="booking.draftTitle">ЧЕРНОВИК ЗАЯВКИ ГОТОВ</h4>
+            <h4 data-i18n="booking.draftTitle">ЧЕРНОВИК ЗАЯВКИ</h4>
             <textarea id="request-preview" readonly rows="9" aria-label="Текст заявки" data-i18n-aria-label="a11y.requestPreview"></textarea>
             <button class="copy-button" type="button" id="copy-request"><span data-i18n="booking.copy">СКОПИРОВАТЬ ЗАЯВКУ</span> ↗</button>
             <p id="copy-message" aria-live="polite"></p>
@@ -225,7 +233,7 @@
       </div>
     </div>
 
-    <small class="footer-disclaimer" data-i18n="footer.disclaimer">Автоматическую отправку заявок необходимо подключить перед публикацией. На фотографиях — наше реальное оборудование.</small>
+    <small class="footer-disclaimer" data-i18n="footer.disclaimer">На фотографиях — наше реальное оборудование. Доставка и монтаж включены в стоимость по Таллинну.</small>
   </footer>
 </body>
 </html>

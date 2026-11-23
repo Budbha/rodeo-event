@@ -1,4 +1,7 @@
-/** Pricing + request draft. The form never claims that a request was sent. */
+/**
+ * RODEO EVENT — Pricing calculation & Booking submission via Resend
+ */
+
 export function calculatePrice(hours) {
   const count = Number(hours);
   if (!Number.isInteger(count) || count < 1 || count > 24) return null;
@@ -14,6 +17,11 @@ export function setupBooking(i18n) {
   const message = document.querySelector('#copy-message');
   const hoursInput = document.querySelector('#hours');
   const eventInput = document.querySelector('#event-type');
+  const successBox = document.querySelector('#booking-success');
+  const errorBox = document.querySelector('#booking-error');
+  const submitButton = form?.querySelector('button[type="submit"]');
+  const submitButtonText = submitButton?.querySelector('[data-i18n="booking.prepare"]') || submitButton;
+
   const translate = key => i18n.t(key);
   const isFestival = () => eventInput.value === 'festival';
   const selectedHours = () => Number(hoursInput.value);
@@ -31,7 +39,9 @@ export function setupBooking(i18n) {
       priceEl.textContent = amount.toLocaleString(i18n.current === 'et' ? 'et-EE' : 'ru-RU') + ' €';
       noteEl.textContent = translate('booking.estimateDelivery');
     }
-    result.hidden = true;
+    if (result) result.hidden = true;
+    if (successBox) successBox.hidden = true;
+    if (errorBox) errorBox.hidden = true;
   }
 
   function buildRequest() {
@@ -53,8 +63,8 @@ export function setupBooking(i18n) {
     ].join('\n');
   }
 
-  hoursInput.addEventListener('input', updateEstimate);
-  eventInput.addEventListener('change', updateEstimate);
+  hoursInput?.addEventListener('input', updateEstimate);
+  eventInput?.addEventListener('change', updateEstimate);
 
   document.querySelectorAll('[data-hours]').forEach(link => link.addEventListener('click', () => {
     hoursInput.value = link.dataset.hours;
@@ -66,7 +76,7 @@ export function setupBooking(i18n) {
     updateEstimate();
   }));
 
-  form.addEventListener('submit', event => {
+  form?.addEventListener('submit', async event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     if (calculatePrice(selectedHours()) === null) {
@@ -75,16 +85,74 @@ export function setupBooking(i18n) {
       hoursInput.setCustomValidity('');
       return;
     }
-    preview.value = buildRequest();
-    result.hidden = false;
-    message.textContent = '';
-    result.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-      block: 'nearest',
-    });
+
+    const requestText = buildRequest();
+    if (preview) preview.value = requestText;
+    if (successBox) successBox.hidden = true;
+    if (errorBox) errorBox.hidden = true;
+    if (result) result.hidden = true;
+
+    // Loading state
+    const originalText = submitButtonText ? submitButtonText.textContent : '';
+    if (submitButton) submitButton.disabled = true;
+    if (submitButtonText) submitButtonText.textContent = translate('booking.sending');
+
+    const payload = {
+      name: fieldValue('name'),
+      contact: fieldValue('contact'),
+      date: fieldValue('date'),
+      location: fieldValue('location'),
+      eventType: eventInput.value,
+      eventTypeLabel: eventInput.options[eventInput.selectedIndex].textContent,
+      hours: fieldValue('hours'),
+      estimate: isFestival() ? translate('request.askPrice') : `${calculatePrice(selectedHours())} €`,
+      notes: fieldValue('notes'),
+      language: i18n.current,
+    };
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || `HTTP ${response.status}`);
+      }
+
+      // Success
+      if (successBox) successBox.hidden = false;
+      form.reset();
+      updateEstimate();
+      if (successBox) {
+        successBox.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+          block: 'nearest',
+        });
+      }
+    } catch (err) {
+      console.warn('[RODEO Booking] API send failed, showing fallback draft:', err);
+      // Fallback: show error message and copyable draft
+      if (errorBox) errorBox.hidden = false;
+      if (result) result.hidden = false;
+      if (message) message.textContent = '';
+      const target = errorBox || result;
+      if (target) {
+        target.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+          block: 'nearest',
+        });
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+      if (submitButtonText) submitButtonText.textContent = originalText;
+    }
   });
 
-  document.querySelector('#copy-request').addEventListener('click', async () => {
+  document.querySelector('#copy-request')?.addEventListener('click', async () => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(preview.value);

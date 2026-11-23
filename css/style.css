@@ -948,7 +948,14 @@ section {
 .send-button {
   margin-top:28px;
   width:100%;
-  justify-content:space-between
+  justify-content:space-between;
+  transition:opacity .2s ease
+}
+
+.send-button:disabled {
+  opacity:.65;
+  cursor:not-allowed;
+  pointer-events:none
 }
 
 .submission-note {
@@ -956,6 +963,56 @@ section {
   color:#847c75;
   line-height:1.75;
   margin-top:15px
+}
+
+.booking-status {
+  margin-top:25px;
+  padding:22px 25px;
+  line-height:1.6
+}
+
+.booking-success {
+  background:#edf7ed;
+  border-left:3px solid #2e7d32;
+  color:#1b5e20
+}
+
+.booking-success h4 {
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:8px;
+  color:#1b5e20;
+  letter-spacing:.04em;
+  text-transform:uppercase
+}
+
+.booking-success p {
+  font-size:13px;
+  color:#2e7d32;
+  margin:0;
+  line-height:1.6
+}
+
+.booking-error {
+  background:#faebeb;
+  border-left:3px solid var(--red);
+  color:var(--red-deep)
+}
+
+.booking-error h4 {
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:8px;
+  color:var(--red);
+  letter-spacing:.04em;
+  text-transform:uppercase
+}
+
+.booking-error p {
+  font-size:13px;
+  color:#59191c;
+  margin:0;
+  line-height:1.6
 }
 
 .request-result {
