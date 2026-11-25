@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Route /api/send to /api/send.php on Apache / Zone.ee hosting
+  RewriteRule ^api/send/?$ api/send.php [L,QSA]
+</IfModule>
