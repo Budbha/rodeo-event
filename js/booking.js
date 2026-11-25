@@ -1,4 +1,6 @@
-/** Pricing + request draft. The form never claims that a request was sent. */
+/**
+ * Pricing calculation + Resend booking submission with mailto/copy fallback.
+ */
 const CASTLE_DAY_RATE = 160;
 
 export function calculatePrice(hours) {
@@ -19,6 +21,11 @@ export function setupBooking(i18n) {
   const hoursInput = document.querySelector('#hours');
   const eventInput = document.querySelector('#event-type');
   const productInput = document.querySelector('#booking-product');
+  const successBox = document.querySelector('#booking-success');
+  const errorBox = document.querySelector('#booking-error');
+  const submitButton = form?.querySelector('button[type="submit"]');
+  const submitButtonText = submitButton?.querySelector('[data-i18n="booking.prepare"]') || submitButton;
+
   const hoursField = hoursInput.closest('label');
   const translate = key => i18n.t(key);
   const isFestival = () => eventInput.value === 'festival';
@@ -58,7 +65,9 @@ export function setupBooking(i18n) {
     labelEl.textContent = translate(label);
     priceEl.textContent = price;
     noteEl.textContent = note;
-    result.hidden = true;
+    if (result) result.hidden = true;
+    if (successBox) successBox.hidden = true;
+    if (errorBox) errorBox.hidden = true;
   }
 
   function buildRequest() {
@@ -91,10 +100,14 @@ export function setupBooking(i18n) {
     ].join('\n');
   }
 
-  hoursInput.addEventListener('input', updateEstimate);
-  eventInput.addEventListener('change', updateEstimate);
-  productInput.addEventListener('change', updateEstimate);
-  form.addEventListener('input', () => { result.hidden = true; });
+  hoursInput?.addEventListener('input', updateEstimate);
+  eventInput?.addEventListener('change', updateEstimate);
+  productInput?.addEventListener('change', updateEstimate);
+  form?.addEventListener('input', () => {
+    if (result) result.hidden = true;
+    if (successBox) successBox.hidden = true;
+    if (errorBox) errorBox.hidden = true;
+  });
 
   document.querySelectorAll('[data-booking-product]').forEach(link => link.addEventListener('click', () => {
     productInput.value = link.dataset.bookingProduct;
@@ -113,7 +126,7 @@ export function setupBooking(i18n) {
     updateEstimate();
   }));
 
-  form.addEventListener('submit', event => {
+  form?.addEventListener('submit', async event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     if (!hoursInput.disabled && calculatePrice(hoursInput.value) === null) {
@@ -122,18 +135,95 @@ export function setupBooking(i18n) {
       hoursInput.setCustomValidity('');
       return;
     }
-    preview.value = buildRequest();
+
+    const requestText = buildRequest();
+    if (preview) preview.value = requestText;
     const subject = `${translate('request.mailSubject')}: ${productInput.selectedOptions[0].textContent}`;
-    emailLink.href = `mailto:rodeorent1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preview.value)}`;
-    result.hidden = false;
-    message.textContent = '';
-    result.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'nearest',
-    });
+    if (emailLink) {
+      emailLink.href = `mailto:rodeorent1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(requestText)}`;
+    }
+
+    if (result) result.hidden = true;
+    if (successBox) successBox.hidden = true;
+    if (errorBox) errorBox.hidden = true;
+
+    // Loading state
+    const originalText = submitButtonText ? submitButtonText.textContent : '';
+    if (submitButton) submitButton.disabled = true;
+    if (submitButtonText) submitButtonText.textContent = translate('booking.sending');
+
+    const product = productInput.value;
+    const productLabel = productInput.selectedOptions[0].textContent;
+    const values = new FormData(form);
+    const fieldValue = name => String(values.get(name) || '').trim();
+    const {price, draftPrice = price} = getEstimate(product);
+    const bullDuration = `${fieldValue('hours')} ${translate('request.hourUnit')}`;
+    const castleDuration = translate('request.oneDay');
+    const durations = {
+      bull: bullDuration,
+      castle: castleDuration,
+      both: `${translate('booking.productBull')} — ${bullDuration}. ${translate('booking.productCastle')} — ${castleDuration}.`,
+    };
+
+    const payload = {
+      name: fieldValue('name'),
+      contact: fieldValue('contact'),
+      product,
+      productLabel,
+      date: fieldValue('date'),
+      location: fieldValue('location'),
+      eventType: eventInput.value,
+      eventTypeLabel: eventInput.options[eventInput.selectedIndex].textContent,
+      hours: fieldValue('hours'),
+      duration: durations[product],
+      estimate: draftPrice,
+      notes: fieldValue('notes'),
+      language: i18n.current,
+    };
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || `HTTP ${response.status}`);
+      }
+
+      // Success
+      if (successBox) successBox.hidden = false;
+      form.reset();
+      updateEstimate();
+      if (successBox) {
+        successBox.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'nearest',
+        });
+      }
+    } catch (err) {
+      console.warn('[RODEO Booking] API send failed, showing fallback draft & mailto:', err);
+      // Fallback: show error message, copyable draft and direct mailto button
+      if (errorBox) errorBox.hidden = false;
+      if (result) result.hidden = false;
+      if (message) message.textContent = '';
+      const target = errorBox || result;
+      if (target) {
+        target.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'nearest',
+        });
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+      if (submitButtonText) submitButtonText.textContent = originalText;
+    }
   });
 
-  document.querySelector('#copy-request').addEventListener('click', async () => {
+  document.querySelector('#copy-request')?.addEventListener('click', async () => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(preview.value);
