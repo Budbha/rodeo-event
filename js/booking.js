@@ -18,11 +18,6 @@ export function setupBooking(i18n) {
   const emailLink = document.querySelector('#email-request');
   const hoursInput = document.querySelector('#hours');
   const eventInput = document.querySelector('#event-type');
-  const successBox = document.querySelector('#booking-success');
-  const errorBox = document.querySelector('#booking-error');
-  const submitButton = form?.querySelector('button[type="submit"]');
-  const submitButtonText = submitButton?.querySelector('[data-i18n="booking.prepare"]') || submitButton;
-
   const productInput = document.querySelector('#booking-product');
   const hoursField = hoursInput.closest('label');
   const translate = key => i18n.t(key);
@@ -49,9 +44,6 @@ export function setupBooking(i18n) {
       const note = `${translate('booking.productBull')} — ${formatPrice(bullPrice)}. ${translate('booking.productCastle')} — ${castleDaily}.`;
       return {price, note, draftPrice: `${price}. ${note}`};
     }
-    if (result) result.hidden = true;
-    if (successBox) successBox.hidden = true;
-    if (errorBox) errorBox.hidden = true;
     return {price: formatPrice(bullPrice), note: translate('booking.estimateDelivery')};
   }
 
@@ -121,7 +113,7 @@ export function setupBooking(i18n) {
     updateEstimate();
   }));
 
-  form?.addEventListener('submit', async event => {
+  form.addEventListener('submit', event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     if (!hoursInput.disabled && calculatePrice(hoursInput.value) === null) {
@@ -129,71 +121,6 @@ export function setupBooking(i18n) {
       hoursInput.reportValidity();
       hoursInput.setCustomValidity('');
       return;
-    }
-
-    const requestText = buildRequest();
-    if (preview) preview.value = requestText;
-    if (successBox) successBox.hidden = true;
-    if (errorBox) errorBox.hidden = true;
-    if (result) result.hidden = true;
-
-    // Loading state
-    const originalText = submitButtonText ? submitButtonText.textContent : '';
-    if (submitButton) submitButton.disabled = true;
-    if (submitButtonText) submitButtonText.textContent = translate('booking.sending');
-
-    const payload = {
-      name: fieldValue('name'),
-      contact: fieldValue('contact'),
-      date: fieldValue('date'),
-      location: fieldValue('location'),
-      eventType: eventInput.value,
-      eventTypeLabel: eventInput.options[eventInput.selectedIndex].textContent,
-      hours: fieldValue('hours'),
-      estimate: isFestival() ? translate('request.askPrice') : `${calculatePrice(selectedHours())} €`,
-      notes: fieldValue('notes'),
-      language: i18n.current,
-    };
-
-    try {
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (!response.ok || !data.ok) {
-        throw new Error(data.error || `HTTP ${response.status}`);
-      }
-
-      // Success
-      if (successBox) successBox.hidden = false;
-      form.reset();
-      updateEstimate();
-      if (successBox) {
-        successBox.scrollIntoView({
-          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-          block: 'nearest',
-        });
-      }
-    } catch (err) {
-      console.warn('[RODEO Booking] API send failed, showing fallback draft:', err);
-      // Fallback: show error message and copyable draft
-      if (errorBox) errorBox.hidden = false;
-      if (result) result.hidden = false;
-      if (message) message.textContent = '';
-      const target = errorBox || result;
-      if (target) {
-        target.scrollIntoView({
-          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-          block: 'nearest',
-        });
-      }
-    } finally {
-      if (submitButton) submitButton.disabled = false;
-      if (submitButtonText) submitButtonText.textContent = originalText;
     }
     preview.value = buildRequest();
     const subject = `${translate('request.mailSubject')}: ${productInput.selectedOptions[0].textContent}`;
@@ -206,7 +133,7 @@ export function setupBooking(i18n) {
     });
   });
 
-  document.querySelector('#copy-request')?.addEventListener('click', async () => {
+  document.querySelector('#copy-request').addEventListener('click', async () => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(preview.value);

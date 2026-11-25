@@ -98,7 +98,7 @@
     "title2": "RODEOKS?",
     "description": "Sinu üritus. Meie toome põnevuse. Anna teada kuupäev, asukoht ja kestus – täpsustame üksikasjad koos.",
     "formTitle": "RÄÄGI OMA ÜRITUSEST",
-    "formSubtitle": "Täida vorm ja me võtame sinuga ühendust detailide täpsustamiseks ja broneerimiseks.",
+    "formSubtitle": "Vali atraktsioon ja lisa ürituse andmed. Valmistame ette e-kirja, mille saad meile saata.",
     "name": "NIMI *",
     "namePlaceholder": "Kuidas sind kutsuda?",
     "contact": "TELEFON VÕI E-POST *",
@@ -116,31 +116,34 @@
     "notesPlaceholder": "Mida peaksime veel teadma?",
     "estimateLabel": "ESIALGNE HIND",
     "estimateDelivery": "Tallinnas tasuta transport. Mujal kokkuleppel.",
-    "prepare": "SAADA PÄRING",
-    "sending": "SAATMINE...",
-    "submissionNote": "Päring saadetakse meie e-postile. Lõplik broneering kinnitatakse pärast detailide kooskõlastamist.",
-    "successTitle": "PÄRING EDUKALT SAADETUD!",
-    "successMessage": "Aitäh! Oleme saanud sinu päringu ja võtame peagi ühendust detailide täpsustamiseks.",
-    "errorTitle": "PÄRINGU SAATMINE EBAÕNNESTUS",
-    "errorMessage": "Päringu automaatsel saatmisel tekkis viga. Kopeeri allolev päring ja saada see aadressile rodeorent1@gmail.com või helista meile.",
-    "draftTitle": "PÄRINGU TEKST",
-    "copy": "KOPEERI PÄRING"
+    "prepare": "KOOSTA E-KIRI",
+    "submissionNote": "Pärast päringu koostamist ava e-post ja saada kiri ära. Broneeringu kinnitame eraldi.",
+    "draftTitle": "PÄRING ON KOOSTATUD",
+    "copy": "KOPEERI PÄRING",
+    "product": "ATRAKTSIOON",
+    "productBull": "Mehaaniline pull",
+    "productCastle": "Tuletõrje batuut",
+    "productBoth": "Mõlemad atraktsioonid",
+    "perDay": "päevas",
+    "castleNote": "Päevahind kehtib ka mõnetunnise rendi korral. Transpordi ja paigalduse lepime eraldi kokku.",
+    "castleEstimateLabel": "BATUUDI RENDIHIND",
+    "bothFestivalNote": "Pulli rendihinna ja kogusumma lepime eraldi kokku.",
+    "sendEmail": "AVA E-POST",
+    "emailHint": "Kiri avaneb sinu e-posti rakenduses. Ära unusta vajutada „Saada”."
   },
-  
-"footer": {
-  "description": "Mehaanilise pulli premium-rent Eestis. Tallinnas tasuta transport, mujal kokkuleppel.",
-  "top": "ÜLES",
-  "disclaimer": "Fotodel on meie päris atraktsioon. Transport ja paigaldus Tallinnas on hinna sees.",
-  "contactsTitle1": "TEKKIS KÜSIMUS?",
-  "contactsTitle2": "VÕTA MEIEGA ÜHENDUST.",
-  "contactsDescription": "Aitame valida sobiva rendiaja ja korraldada atraktsiooni sinu üritusele."
-},
+  "footer": {
+    "description": "Mehaanilise pulli ja tuletõrje kombobatuudi rent Eestis.",
+    "top": "ÜLES",
+    "contactsTitle1": "TEKKIS KÜSIMUS?",
+    "contactsTitle2": "VÕTA MEIEGA ÜHENDUST",
+    "contactsDescription": "Aitame valida sobiva rendiaja ja korraldada atraktsiooni sinu üritusele."
+  },
   "meta": {
     "title": "RODEO EVENT — mehaanilise pulli ja batuudi rent Eestis",
     "description": "Mehaanilise pulli ja tuletõrje kombobatuudi rent Eestis. Hinnad, tingimused ja rendipäring."
   },
   "request": {
-    "title": "RODEO EVENT — broneerimispäring",
+    "title": "RODEO EVENT — rendipäring",
     "name": "Nimi",
     "contact": "Kontakt",
     "date": "Kuupäev",
