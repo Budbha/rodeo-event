@@ -1,0 +1,335 @@
+/* RODEO EVENT — responsive refinement for existing Editorial V7.
+   Load AFTER style.css and motion.css; does not change site content or booking logic. */
+
+/* Prevent long translated words and form controls from stretching grid tracks. */
+.hero-content, .hero-content-main, .pricing-intro, .pricing-list,
+.included-copy, .safety-copy, .booking-intro, .booking-form-wrap,
+.tariff-text, .footer-contacts, .footer-contact-item { min-width: 0; }
+
+/* Text arrows, not coloured iOS emoji. */
+.tariff-arrow { font-size: 0; }
+.tariff-arrow::before {
+  content: "\2197\FE0E";
+  font: 400 22px/1 Arial, Helvetica, sans-serif;
+}
+
+/* 2K / wide desktop: maintain the editorial split without excessive dead space. */
+@media (min-width: 1900px) {
+  :root { --edge: clamp(70px, 4.25vw, 112px); }
+  .site-header { height: 92px; gap: clamp(24px, 2.2vw, 54px); }
+  .hero {
+    grid-template-columns: 52% 48%;
+    min-height: min(970px, calc(100svh - 92px));
+  }
+  .hero-content { padding-inline: clamp(72px, 4.4vw, 120px); }
+  .hero-content-main { padding-top: clamp(85px, 8.2vh, 140px); padding-bottom: 40px; }
+  .hero h1 { font-size: clamp(76px, 3.55vw, 99px); letter-spacing: -.07em; }
+  .hero .lead { font-size: clamp(18px, .88vw, 21px); line-height: 1.64; }
+  .hero-desc { font-size: clamp(15px, .73vw, 18px); line-height: 1.7; }
+
+  .pricing { grid-template-columns: 39% 61%; min-height: 0; }
+  .pricing-intro { padding-block: clamp(85px, 5vw, 125px) 65px; }
+  .pricing-list { padding-block: clamp(85px, 5vw, 125px) 84px; }
+  .pricing h2 { font-size: clamp(76px, 4.2vw, 108px); }
+  .tariff { padding-block: clamp(34px, 2.1vw, 51px); }
+  .tariff-text h3 { font-size: clamp(33px, 1.65vw, 45px); }
+  .tariff-price strong { font-size: clamp(39px, 2vw, 53px); }
+
+  .included-main { min-height: 0; }
+  .included-copy { padding-block: clamp(95px, 5.4vw, 135px); }
+  .included-photo { min-height: 760px; }
+  .included h2 { font-size: clamp(86px, 4.6vw, 120px); }
+  .safety-panel { padding-block: clamp(80px, 4.6vw, 118px); }
+  .booking { min-height: 0; }
+  .booking-intro, .booking-form-wrap { padding-block: clamp(86px, 5vw, 125px); }
+}
+
+/* Dedicated mobile layout (not merely a squeezed desktop grid). */
+@media (max-width: 767px) {
+  :root { --edge: clamp(18px, 5vw, 27px); }
+  html { scroll-padding-top: 78px; }
+
+  .site-header {
+    height: 66px;
+    gap: 10px;
+    padding-inline: var(--edge);
+  }
+  .brand { gap: 7px; }
+  .brand img { width: 30px; height: auto; }
+  .brand-type b { font-size: 17px; }
+  .brand-type small { font-size: 8px; letter-spacing: .22em; margin-top: 4px; }
+  .header-actions { gap: 8px; margin-left: auto; }
+  .lang-switch button { min-width: 26px; height: 28px; }
+  .header-book {
+    font-size: 9px;
+    line-height: 1.2;
+    gap: 7px;
+    padding: 11px 10px;
+    min-height: 43px;
+  }
+  .header-book span:last-child { font-size: 16px; }
+
+  /* Put the real attraction in the first viewport. */
+  .hero { display: flex; flex-direction: column; min-height: 0; }
+  .hero-visual {
+    order: 0;
+    width: 100%;
+    height: clamp(250px, 68vw, 385px);
+    min-height: 0;
+  }
+  .hero-photo { object-position: center 55%; }
+  .hero-image-top { top: 18px; font-size: 9px; }
+  .hero-image-bottom { bottom: 18px; font-size: 9px; }
+  .hero-content { order: 1; padding-inline: var(--edge); }
+  .hero-content-main { padding: 39px 0 46px; }
+  .hero h1 {
+    font-size: clamp(35px, 8.65vw, 48px);
+    line-height: .99;
+    letter-spacing: -.067em;
+    margin: 22px 0 24px;
+  }
+  .hero h1 .title-last { font-size: .82em; letter-spacing: -.06em; }
+  .hero .lead { font-size: 14px; line-height: 1.65; }
+  .hero-desc { font-size: 13px; line-height: 1.7; margin-top: 12px; }
+  .hero-cta-row { margin-top: 24px; gap: 12px; align-items: stretch; }
+  .hero .button-red { width: 100%; min-height: 49px; padding: 13px 17px; font-size: 10px; }
+  .hero .text-link { width: max-content; min-height: 42px; }
+  .hero-bottom { display: none; }
+
+  .event-strip { gap: 8px; padding-block: 16px; }
+
+  /* Compact prices; arrows stay beside headings rather than floating on a far edge. */
+  .pricing-intro { min-height: 0; padding: 52px var(--edge) 48px; }
+  .pricing h2 { font-size: clamp(44px, 10vw, 65px); margin: 26px 0 20px; }
+  .pricing-intro p { font-size: 13px; line-height: 1.7; }
+  .pricing-signature { margin-top: 34px; }
+  .pricing-list { padding: 43px var(--edge) 62px; }
+  .section-row { gap: 10px; font-size: 9px; margin-bottom: 24px; }
+  .section-row span:last-child { flex-shrink: 0; }
+  .tariff {
+    grid-template-columns: 19px minmax(0,1fr) 32px;
+    align-items: start;
+    column-gap: 10px;
+    row-gap: 12px;
+    padding: 24px 0;
+  }
+  .tariff-no { grid-column: 1; grid-row: 1; padding-top: 5px; }
+  .tariff-text { grid-column: 2; grid-row: 1; }
+  .tariff-text h3 { font-size: clamp(21px, 5.5vw, 27px); line-height: 1.13; }
+  .tariff-text p { font-size: 13px; line-height: 1.65; margin-top: 9px; }
+  .tariff-price { grid-column: 2 / 4; grid-row: 2; align-items: flex-start; margin: 3px 0 0; }
+  .tariff-price strong { font-size: 34px; }
+  .tariff-price.custom-price strong { font-size: 19px; }
+  .tariff-arrow {
+    display: grid;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: start;
+    margin-top: 1px;
+    width: 30px;
+    height: 30px;
+    color: var(--red);
+    border-color: #b9aca2;
+  }
+  .tariff-arrow::before { font-size: 18px; }
+  .price-explanation { font-size: 12px; padding-top: 21px; }
+
+  .included-copy { padding: 60px var(--edge) 64px; }
+  .included h2 { font-size: clamp(43px, 10.4vw, 65px); margin: 25px 0 21px; }
+  .included-lead { font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+  .benefit { padding: 18px 0; }
+  .benefit h3 { font-size: 16px; }
+  .benefit p { font-size: 13px; }
+  .included-photo { min-height: 0; height: clamp(280px, 77vw, 420px); }
+  .included-photo img { object-position: center center; }
+  .safety-panel { padding: 58px var(--edge) 62px; gap: 23px; }
+  .included .safety-copy h2 { font-size: clamp(31px, 8.2vw, 44px); margin: 22px 0; }
+  .safety-copy p { font-size: 13px; }
+  .requirements { grid-template-columns: 1fr; }
+  .requirement { grid-template-columns: minmax(112px, auto) 1fr; gap: 15px; padding: 18px 0; }
+  .requirement strong { font-size: clamp(37px, 9.4vw, 48px); }
+
+  .booking-intro { min-height: 0; padding: 62px var(--edge) 69px; }
+  .booking-intro h2 { font-size: clamp(48px, 11.4vw, 70px); margin: 27px 0 24px; }
+  .booking-form-wrap { padding: 54px var(--edge) 72px; }
+  .fields { grid-template-columns: 1fr; }
+  .fields input, .fields select, .fields textarea { font-size: 16px; }
+  .estimate { grid-template-columns: 1fr auto; gap: 6px 12px; }
+  .estimate > strong { font-size: 31px; }
+
+  .footer { padding: 48px var(--edge) 32px; gap: 16px; }
+  .footer-contacts {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0,1fr);
+    gap: 29px;
+    padding: 39px 0;
+  }
+  .footer-contacts-title { font-size: clamp(31px, 8.4vw, 44px); overflow-wrap: anywhere; }
+  .footer-contact-item a { overflow-wrap: anywhere; font-size: clamp(16px, 4.1vw, 21px); }
+  .footer-disclaimer { font-size: 11px; }
+
+  /* Parallax creates unnecessary cropping and scroll jank on iOS Safari. */
+  .motion-enabled .hero-photo,
+  .motion-enabled .included-photo img { transform: none; animation: none; will-change: auto; }
+}
+
+@media (max-width: 380px) {
+  .header-book { font-size: 9px; padding: 9px 8px; }
+  .header-book span:first-child { font-size: 9px; }
+  .hero h1 { font-size: clamp(33px, 8.5vw, 38px); }
+  .pricing h2 { font-size: 43px; }
+  .included h2 { font-size: 43px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo, .included-photo img { animation: none !important; }
+}
+
+
+
+/* ==========================================
+   2K DESKTOP — TYPOGRAPHY REFINEMENT
+   Large screens: 2000px+
+========================================== */
+
+@media (min-width: 2000px) {
+
+  /* Общий текст */
+  body {
+    font-size: 18px;
+  }
+
+  /* Навигация */
+  .nav a {
+    font-size: 16px;
+  }
+
+  .header-book {
+    font-size: 13px;
+  }
+
+  .lang-switch button {
+    font-size: 12px;
+  }
+
+  /* Маленькие заголовки */
+  .eyebrow {
+    font-size: 13px;
+  }
+
+  .section-row {
+    font-size: 13px;
+  }
+
+  /* Главный экран */
+  .hero .lead {
+    font-size: 21px;
+    line-height: 1.65;
+  }
+
+  .hero-desc {
+    font-size: 19px;
+    line-height: 1.75;
+  }
+
+  .button-red,
+  .text-link {
+    font-size: 14px;
+  }
+
+  /* Цены */
+  .pricing-intro p {
+    font-size: 19px;
+  }
+
+  .tariff-text p {
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .tariff-no {
+    font-size: 14px;
+  }
+
+  .tariff-price span {
+    font-size: 13px;
+  }
+
+  .price-explanation {
+    font-size: 16px;
+  }
+
+  /* Что включено */
+  .included-lead {
+    font-size: 21px;
+  }
+
+  .benefit h3 {
+    font-size: 26px;
+  }
+
+  .benefit p {
+    font-size: 19px;
+  }
+
+  .benefits-note {
+    font-size: 15px;
+  }
+
+  /* Безопасность */
+  .safety-copy p {
+    font-size: 19px;
+  }
+
+  .requirement p {
+    font-size: 17px;
+  }
+
+  /* Бронирование */
+  .booking-intro p {
+    font-size: 19px;
+  }
+
+  .form-head p {
+    font-size: 18px;
+  }
+
+  .fields label span {
+    font-size: 13px;
+  }
+
+  .fields input,
+  .fields select,
+  .fields textarea {
+    font-size: 18px;
+  }
+
+  .estimate > span {
+    font-size: 13px;
+  }
+
+  .estimate > small {
+    font-size: 15px;
+  }
+
+  .submission-note {
+    font-size: 14px;
+  }
+
+  /* Контакты и футер */
+  .footer > p {
+    font-size: 17px;
+  }
+
+  .footer-contacts-description {
+    font-size: 18px;
+  }
+
+  .footer-contact-label {
+    font-size: 13px;
+  }
+
+  .footer-disclaimer {
+    font-size: 13px;
+  }
+}

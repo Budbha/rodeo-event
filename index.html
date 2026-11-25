@@ -4,15 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1c1b1a">
-  <meta name="description" content="RODEO EVENT — премиальная аренда механического быка в Эстонии. Тарифы, доставка, монтаж и инструктор. Оставьте заявку на мероприятие.">
-  <title>RODEO EVENT — аренда механического быка в Эстонии</title>
+  <meta name="description" content="RODEO EVENT — аренда механического быка и пожарного батута с горкой в Эстонии. Цены, условия и заявка на аренду.">
+  <title>RODEO EVENT — аренда механического быка и батута в Эстонии</title>
+  <link rel="canonical" href="https://rodeoevent.ee/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RODEO EVENT">
+  <meta property="og:title" content="RODEO EVENT — Аттракционы для мероприятий в Эстонии">
+  <meta property="og:description" content="Механический бык и пожарный батут в аренду. Таллинн и вся Эстония. Цены и бронирование.">
+  <meta property="og:image" content="https://rodeoevent.ee/assets/og-preview.jpg">
+  <meta property="og:url" content="https://rodeoevent.ee/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/bull-mark.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/motion.css">
-  <script src="js/app.js" type="module"></script>
+  <link rel="stylesheet" href="css/style.css?v=20261125b">
+  <link rel="stylesheet" href="css/motion.css?v=20261125c">
+  <script src="js/app.js?v=20261125c" type="module"></script>
 </head>
 <body>
   <a href="#main" class="skip-link" data-i18n="a11y.skip">Перейти к содержимому</a>
@@ -25,6 +33,7 @@
       <a href="#pricing" data-i18n="nav.prices">Цены</a>
       <a href="#included" data-i18n="nav.included">Что включено</a>
       <a href="#safety" data-i18n="nav.safety">Безопасность</a>
+      <a href="#castle" data-i18n="nav.castle">Батут</a>
       <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
     </nav>
     <div class="header-actions">
@@ -32,7 +41,7 @@
         <button type="button" data-lang="ru" aria-pressed="true">RU</button>
         <button type="button" data-lang="et" aria-pressed="false">ET</button>
       </div>
-      <a href="#booking" class="header-book"><span data-i18n="nav.book">ОСТАВИТЬ ЗАЯВКУ</span><span aria-hidden="true">↗</span></a>
+      <a href="#booking" class="header-book"><span data-i18n="nav.book">ОСТАВИТЬ ЗАЯВКУ</span><span aria-hidden="true">↗︎</span></a>
     </div>
   </header>
 
@@ -40,10 +49,10 @@
     <!-- 01 — hero: authentic photo / editorial copy -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-visual">
-        <img src="assets/bull-front.webp" width="738" height="741" alt="Настоящий механический бык RODEO EVENT в чёрно-красной надувной арене" data-i18n-alt="hero.imageAlt" class="hero-photo" fetchpriority="high">
+        <img src="assets/bull-front.webp" width="738" height="741" alt="Механический бык RODEO EVENT в чёрно-красной надувной арене на траве" data-i18n-alt="hero.imageAlt" class="hero-photo" fetchpriority="high">
         <span class="hero-image-top">RODEO EVENT <span class="hero-image-rule"></span> ESTONIA</span>
         <div class="hero-image-bottom">
-          <span data-i18n="hero.imageCaption">НАШ НАСТОЯЩИЙ АТТРАКЦИОН</span>
+          <span data-i18n="hero.imageCaption">МЕХАНИЧЕСКИЙ БЫК / 01</span>
           <b>01 / 04</b>
         </div>
       </div>
@@ -54,14 +63,15 @@
             <span data-i18n="hero.title1">ГЛАВНЫЙ</span>
             <span data-i18n="hero.title2">АТТРАКЦИОН</span>
             <em data-i18n="hero.title3">ВАШЕГО</em>
-            <span class="title-last" data-i18n="hero.title4">МЕРОПРИЯТИЯ.</span>
+            <span class="title-last" data-i18n="hero.title4">МЕРОПРИЯТИЯ</span>
           </h1>
           <p class="lead" data-i18n="hero.lead">Премиальная аренда механического быка в Эстонии. Корпоративы, фестивали, дни рождения, тимбилдинги и летние мероприятия.</p>
           <p class="hero-desc" data-i18n="hero.description">Адреналин, азарт и яркие эмоции для гостей — с организацией «под ключ».</p>
           <div class="hero-cta-row">
-            <a class="button button-red" href="#booking"><span data-i18n="hero.book">ЗАБРОНИРОВАТЬ</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-red" href="#booking" data-booking-product="bull"><span data-i18n="hero.book">ЗАБРОНИРОВАТЬ</span><span aria-hidden="true">↗︎</span></a>
             <a class="text-link" href="#pricing"><span data-i18n="hero.prices">УЗНАТЬ ЦЕНЫ</span><span aria-hidden="true">↓</span></a>
           </div>
+          <a class="hero-castle-link" href="#castle" data-i18n="castle.heroLink">Пожарный батут · 160 € / день</a>
         </div>
         <div class="hero-bottom"><span>RODEO EVENT / RENTAL</span><span>EST. / EE</span></div>
       </div>
@@ -79,7 +89,7 @@
       <div class="pricing-intro">
         <div>
           <div class="eyebrow on-red"><i></i><span data-i18n="pricing.kicker">АРЕНДА И ЦЕНЫ</span></div>
-          <h2 id="pricing-title"><span data-i18n="pricing.title1">ПРОСТО.</span><span data-i18n="pricing.title2">ПОНЯТНО.</span><em data-i18n="pricing.title3">БЕЗ СЮРПРИЗОВ.</em></h2>
+          <h2 id="pricing-title"><span data-i18n="pricing.title1">ПРОСТО</span><span data-i18n="pricing.title2">ПОНЯТНО</span><em data-i18n="pricing.title3">БЕЗ СЮРПРИЗОВ</em></h2>
           <p data-i18n="pricing.intro">Выбирайте продолжительность аренды. Инструктор, монтаж и доставка по Таллинну уже включены в стоимость.</p>
         </div>
         <div class="pricing-signature"><img src="assets/bull-mark.png" alt=""><span>RODEO / PRICE LIST</span></div>
@@ -90,19 +100,19 @@
           <span class="tariff-no">01</span>
           <div class="tariff-text"><h3 data-i18n="pricing.standardTitle">СТАНДАРТНАЯ АРЕНДА</h3><p data-i18n="pricing.standardDescription">На 1–2 часа. Для дней рождения и небольших мероприятий.</p></div>
           <div class="tariff-price"><strong>120 €</strong><span data-i18n="pricing.perHour">/ ЧАС</span></div>
-          <span class="tariff-arrow" aria-hidden="true">↗</span>
+          <span class="tariff-arrow" aria-hidden="true">↗︎</span>
         </a>
         <a class="tariff" href="#booking" data-hours="3" aria-label="Продлённая аренда" data-i18n-aria-label="a11y.extendedTariff">
           <span class="tariff-no">02</span>
           <div class="tariff-text"><h3 data-i18n="pricing.extendedTitle">ПРОДЛЁННАЯ АРЕНДА</h3><p data-i18n="pricing.extendedDescription">Каждый дополнительный час, начиная с третьего. Для корпоративов и длительных мероприятий.</p></div>
           <div class="tariff-price"><strong>80 €</strong><span data-i18n="pricing.perAdditionalHour">/ ДОП. ЧАС</span></div>
-          <span class="tariff-arrow" aria-hidden="true">↗</span>
+          <span class="tariff-arrow" aria-hidden="true">↗︎</span>
         </a>
         <a class="tariff" href="#booking" data-custom="true" aria-label="Фестивали и крупные мероприятия" data-i18n-aria-label="a11y.festivalTariff">
           <span class="tariff-no">03</span>
           <div class="tariff-text"><h3 data-i18n="pricing.festivalTitle">ФЕСТИВАЛИ И КРУПНЫЕ СОБЫТИЯ</h3><p data-i18n="pricing.festivalDescription">Индивидуальные условия с учётом формата, длительности и числа гостей.</p></div>
           <div class="tariff-price custom-price"><strong data-i18n="pricing.onRequest">ПО ЗАПРОСУ</strong></div>
-          <span class="tariff-arrow" aria-hidden="true">↗</span>
+          <span class="tariff-arrow" aria-hidden="true">↗︎</span>
         </a>
         <p class="price-explanation" data-i18n="pricing.explanation">Пример: 3 часа — 320 €, 4 часа — 400 €. Первые два часа по 120 €, каждый следующий — 80 €. Выезд за пределы Таллинна согласовывается отдельно.</p>
       </div>
@@ -113,7 +123,7 @@
       <div class="included-main">
         <div class="included-copy">
           <div class="eyebrow"><i></i><span data-i18n="included.kicker">ВСЁ ВКЛЮЧЕНО</span></div>
-          <h2 id="included-title"><span data-i18n="included.title1">ВСЁ</span><em data-i18n="included.title2">ПРОДУМАНО.</em></h2>
+          <h2 id="included-title"><span data-i18n="included.title1">ВСЁ</span><em data-i18n="included.title2">ПРОДУМАНО</em></h2>
           <p class="included-lead" data-i18n="included.lead">Мы берём организацию на себя, чтобы вы могли наслаждаться мероприятием.</p>
           <div class="benefits">
             <div class="benefit"><span>01</span><div><h3 data-i18n="included.instructorTitle">ПРОФЕССИОНАЛЬНЫЙ ИНСТРУКТОР</h3><p data-i18n="included.instructorDescription">Управляет быком, регулирует скорость и следит за процессом на протяжении всей аренды.</p></div></div>
@@ -123,14 +133,14 @@
           <p class="benefits-note" data-i18n="included.note">Никаких скрытых доплат за перечисленные услуги.</p>
         </div>
         <div class="included-photo">
-          <img src="assets/bull-angle.webp" loading="eager" width="743" height="744" alt="Реальный аттракцион RODEO EVENT, вид сбоку: чёрно-красная надувная арена" data-i18n-alt="included.photoAlt">
-          <span data-i18n="included.photoCaption">РЕАЛЬНОЕ ОБОРУДОВАНИЕ / 02</span>
+          <img src="assets/bull-angle.webp" loading="lazy" decoding="async" width="743" height="744" alt="Механический бык RODEO EVENT на траве — ракурс под углом" data-i18n-alt="included.photoAlt">
+          <span data-i18n="included.photoCaption">МЕХАНИЧЕСКИЙ БЫК / 02</span>
         </div>
       </div>
       <div class="safety-panel" id="safety">
         <div class="safety-copy">
           <div class="eyebrow on-dark"><i></i><span data-i18n="safety.kicker">БЕЗОПАСНОСТЬ И ТРЕБОВАНИЯ</span></div>
-          <h2><span data-i18n="safety.title1">БЕЗОПАСНОСТЬ</span><em data-i18n="safety.title2">ПОД КОНТРОЛЕМ.</em></h2>
+          <h2><span data-i18n="safety.title1">БЕЗОПАСНОСТЬ</span><em data-i18n="safety.title2">ПОД КОНТРОЛЕМ</em></h2>
           <p data-i18n="safety.description">Прочная надувная арена смягчает падения. Инструктор подбирает скорость под участника и сразу останавливает аттракцион при падении.</p>
         </div>
         <div class="requirements">
@@ -138,6 +148,23 @@
           <div class="requirement"><strong>3 <small data-i18n="safety.meters">м</small></strong><p data-i18n="safety.ceiling">Минимальная высота потолка в помещении</p></div>
           <div class="requirement"><strong>220 <small data-i18n="safety.volts">В</small></strong><p data-i18n="safety.power">Обычная электрическая розетка</p></div>
         </div>
+      </div>
+    </section>
+
+    <section class="castle" id="castle" aria-labelledby="castle-title">
+      <div class="castle-inner">
+      <figure class="castle-media">
+        <img src="assets/fire-slide-front.webp" width="1448" height="1086" loading="lazy" alt="Пожарный надувной батут с горкой и игровой зоной на траве" data-i18n-alt="castle.imageAlt">
+        <figcaption data-i18n="castle.imageCaption">02 / ПОЖАРНЫЙ БАТУТ</figcaption>
+      </figure>
+      <div class="castle-copy">
+        <h2 id="castle-title" data-i18n="castle.title">ПОЖАРНЫЙ БАТУТ</h2>
+        <p class="castle-rate"><strong>160 €</strong> <span data-i18n="castle.perDay">/ день</span></p>
+        <p class="castle-description" data-i18n="castle.description">Горка и игровая зона для детских дней рождения и семейных мероприятий</p>
+        <p class="castle-size" data-i18n="castle.size">5 × 4 м · Подходит для улицы и просторных помещений</p>
+        <p class="castle-safety" data-i18n="castle.safety">Сертифицированная конструкция · Высокие защитные бортики · Мягкое приземление</p>
+        <a class="button button-red" href="#booking-form" data-booking-product="castle" data-i18n="castle.book">ЗАБРОНИРОВАТЬ БАТУТ</a>
+      </div>
       </div>
     </section>
 
@@ -153,12 +180,17 @@
         <div class="form-head"><h3 data-i18n="booking.formTitle">РАССКАЖИТЕ О МЕРОПРИЯТИИ</h3><p data-i18n="booking.formSubtitle">Заполните форму, и мы свяжемся с вами для согласования деталей и бронирования.</p></div>
         <form id="booking-form">
           <div class="fields">
+            <label class="full"><span data-i18n="booking.product">АТТРАКЦИОН</span><select name="product" id="booking-product">
+              <option value="bull" data-i18n="booking.productBull">Механический бык</option>
+              <option value="castle" data-i18n="booking.productCastle">Пожарный батут</option>
+              <option value="both" data-i18n="booking.productBoth">Оба аттракциона</option>
+            </select></label>
             <label><span data-i18n="booking.name">ИМЯ *</span><input type="text" name="name" autocomplete="name" required placeholder="Как к вам обращаться?" data-i18n-placeholder="booking.namePlaceholder"></label>
             <label><span data-i18n="booking.contact">ТЕЛЕФОН ИЛИ EMAIL *</span><input type="text" name="contact" required placeholder="Для обратной связи" data-i18n-placeholder="booking.contactPlaceholder"></label>
             <label><span data-i18n="booking.date">ДАТА МЕРОПРИЯТИЯ</span><input type="date" name="date"></label>
             <label><span data-i18n="booking.location">МЕСТО ПРОВЕДЕНИЯ</span><input type="text" name="location" placeholder="Например, Таллинн" data-i18n-placeholder="booking.locationPlaceholder"></label>
             <label><span data-i18n="booking.type">ТИП МЕРОПРИЯТИЯ</span><select name="eventType" id="event-type"><option value="private" data-i18n="booking.typePrivate">День рождения / вечеринка</option><option value="corporate" data-i18n="booking.typeCorporate">Корпоратив / летние дни</option><option value="festival" data-i18n="booking.typeFestival">Фестиваль / крупное событие</option><option value="other" data-i18n="booking.typeOther">Другое</option></select></label>
-            <label><span data-i18n="booking.hours">ПРОДОЛЖИТЕЛЬНОСТЬ (ЧАСОВ)</span><input type="number" name="hours" id="hours" min="1" max="24" step="1" value="2"></label>
+            <label><span data-i18n="booking.hours">АРЕНДА БЫКА (ЧАСОВ)</span><input type="number" name="hours" id="hours" min="1" max="24" step="1" value="2" required></label>
             <label class="full"><span data-i18n="booking.notes">ПОЖЕЛАНИЯ И ДЕТАЛИ</span><textarea name="notes" rows="3" placeholder="Что ещё важно знать о мероприятии?" data-i18n-placeholder="booking.notesPlaceholder"></textarea></label>
           </div>
           <div class="estimate" role="status" aria-live="polite"><span data-i18n="booking.estimateLabel">ПРЕДВАРИТЕЛЬНАЯ СТОИМОСТЬ</span><strong id="estimate-price">240 €</strong><small id="estimate-note" data-i18n="booking.estimateDelivery">Доставка по Таллинну бесплатно. В другие города — по договорённости.</small></div>
@@ -175,7 +207,9 @@
           <div class="request-result" id="request-result" hidden>
             <h4 data-i18n="booking.draftTitle">ЧЕРНОВИК ЗАЯВКИ</h4>
             <textarea id="request-preview" readonly rows="9" aria-label="Текст заявки" data-i18n-aria-label="a11y.requestPreview"></textarea>
-            <button class="copy-button" type="button" id="copy-request"><span data-i18n="booking.copy">СКОПИРОВАТЬ ЗАЯВКУ</span> ↗</button>
+            <a class="button button-red mail-button" id="email-request" href="mailto:rodeorent1@gmail.com"><span data-i18n="booking.sendEmail">ОТКРЫТЬ ПОЧТУ</span><span aria-hidden="true">↗︎</span></a>
+            <p class="email-hint" data-i18n="booking.emailHint">Письмо откроется в вашей почтовой программе. Не забудьте нажать «Отправить».</p>
+            <button class="copy-button" type="button" id="copy-request"><span data-i18n="booking.copy">СКОПИРОВАТЬ ЗАЯВКУ</span> ↗︎</button>
             <p id="copy-message" aria-live="polite"></p>
           </div>
         </form>
@@ -185,7 +219,7 @@
 
   <footer class="footer">
     <a href="#top" class="footer-brand"><img src="assets/bull-mark.png" alt=""><strong>RODEO <em>EVENT.</em></strong></a>
-    <p data-i18n="footer.description">Премиальная аренда механического быка в Эстонии. Доставка по Таллинну бесплатно, по Эстонии — по договорённости.</p>
+    <p data-i18n="footer.description">Аренда механического быка и пожарного батута в Эстонии.</p>
     <a class="footer-up" href="#top"><span data-i18n="footer.top">НАВЕРХ</span> ↑</a>
     
     <div class="footer-contacts" id="contacts">
@@ -195,7 +229,7 @@
       
       <h2 class="footer-contacts-title">
         <strong data-i18n="footer.contactsTitle1">ЕСТЬ ВОПРОСЫ?</strong><br>
-        <span data-i18n="footer.contactsTitle2">СВЯЖИТЕСЬ С НАМИ.</span>
+        <span data-i18n="footer.contactsTitle2">СВЯЖИТЕСЬ С НАМИ</span>
       </h2>
 
 
@@ -233,7 +267,7 @@
       </div>
     </div>
 
-    <small class="footer-disclaimer" data-i18n="footer.disclaimer">На фотографиях — наше реальное оборудование. Доставка и монтаж включены в стоимость по Таллинну.</small>
+    
   </footer>
 </body>
 </html>
