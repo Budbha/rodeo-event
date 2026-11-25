@@ -1,0 +1,20 @@
+{
+  "name": "rodeo-event",
+  "version": "1.0.0",
+  "description": "RODEO EVENT — аренда механического быка и надувного батута в Эстонии",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "rodeo",
+    "event",
+    "estonia",
+    "rental",
+    "resend"
+  ],
+  "author": "RODEO EVENT",
+  "license": "ISC"
+}
