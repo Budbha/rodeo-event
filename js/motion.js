@@ -13,6 +13,11 @@ export function setupMotion() {
     ['.included-lead',170],['.benefit',60,90],['.benefits-note',70],
     ['.safety-copy .eyebrow',0],['.safety-copy h2 > *',70,120],
     ['.safety-copy p',150],['.requirement',60,130],
+    // The fire-slide section was added after V6.1 and needs its own reveal targets.
+    ['.castle-media',70],['.castle-copy h2',120],
+    ['.castle-rate',190],['.castle-description',240],
+    ['.castle-size',290],['.castle-safety',330],
+    ['.castle-copy .button-red',370],
     ['.booking-intro .eyebrow',0],['.booking-intro h2 > *',70,120],
     ['.booking-intro p',160],['.form-head',0],
     ['.fields',60],['.estimate',60],['.send-button',90]

@@ -8,22 +8,32 @@
     "requestPreview": "Päringu tekst",
     "language": "Keele valik"
   },
-
   "nav": {
     "prices": "Hinnad",
     "included": "Mida hind sisaldab",
     "safety": "Ohutus",
     "contacts": "Kontakt",
-    "book": "SAADA PÄRING"
+    "book": "SAADA PÄRING",
+    "castle": "Batuut"
   },
-
+  "castle": {
+    "heroLink": "Tuletõrje batuut · 160 € / päev",
+    "title": "TULETÕRJE BATUUT",
+    "imageAlt": "Tuletõrjeteemaline täispuhutav batuut liumäega murul",
+    "imageCaption": "02 / TULETÕRJE BATUUT",
+    "perDay": "/ päev",
+    "description": "Liumägi ja mänguala laste sünnipäevadeks, suvepäevadeks ning pereüritusteks",
+    "size": "5 × 4 m · Sobib õue ja avaratesse siseruumidesse",
+    "book": "BRONEERI BATUUT",
+    "safety": "Sertifitseeritud konstruktsioon · Kõrged kaitseääred · Pehme maandumine"
+  },
   "hero": {
-    "imageAlt": "RODEO EVENTi päris mehaaniline pull must-punases täispuhutavas areenis",
-    "imageCaption": "MEIE PÄRIS ATRAKTSIOON",
+    "imageAlt": "RODEO EVENTi mehaaniline pull must-punases täispuhutavas areenis murul",
+    "imageCaption": "MEHAANILINE PULL / 01",
     "kicker": "MEHAANILISE PULLI RENT EESTIS",
     "title1": "SINU ÜRITUSE",
     "title2": "VAIELDAMATU",
-    "title3": "TÕMBENUMBER.",
+    "title3": "TÕMBENUMBER",
     "title4": "",
     "lead": "Mehaanilise pulli premium-rent Eestis. Firmapeod, festivalid, sünnipäevad, meeskonnaüritused ja suvepäevad.",
     "description": "Adrenaliin, põnevus ja unustamatud emotsioonid sinu külalistele – kõik vajaliku korraldame meie.",
@@ -39,8 +49,8 @@
   "pricing": {
     "kicker": "RENT JA HINNAD",
     "title1": "SELGE",
-    "title2": "HIND.",
-    "title3": "VÕIMAS ELAMUS.",
+    "title2": "HIND",
+    "title3": "VÕIMAS ELAMUS",
     "intro": "Vali sobiv rendiaeg. Juhendaja, paigaldus ja Tallinna-sisene transport on juba hinna sees.",
     "listCaption": "VALI SOBIV LAHENDUS",
     "standardTitle": "TAVARENT",
@@ -59,7 +69,7 @@
   "included": {
     "kicker": "KÕIK HINNAS",
     "title1": "KÕIK ON",
-    "title2": "LÄBI MÕELDUD.",
+    "title2": "LÄBI MÕELDUD",
     "lead": "Meie hoolitseme atraktsiooni eest, et sina saaksid üritust nautida.",
     "instructorTitle": "PROFESSIONAALNE JUHENDAJA",
     "instructorDescription": "Juhib atraktsiooni ja reguleerib kiirust kogu rendiperioodi vältel.",
@@ -68,13 +78,13 @@
     "deliveryTitle": "TRANSPORT",
     "deliveryDescription": "Tallinnas tasuta. Mujale Eestisse kokkuleppel.",
     "note": "Hinnas sisalduvate teenuste eest varjatud lisatasusid ei ole.",
-    "photoAlt": "RODEO EVENTi päris atraktsioon külgvaates, must-punane täispuhutav areen",
-    "photoCaption": "PÄRIS VARUSTUS / 02"
+    "photoAlt": "RODEO EVENTi mehaaniline pull murul, vaade nurga alt",
+    "photoCaption": "MEHAANILINE PULL / 02"
   },
   "safety": {
     "kicker": "OHUTUS JA TEHNILISED NÕUDED",
     "title1": "OHUTUS",
-    "title2": "ESIKOHAL.",
+    "title2": "ESIKOHAL",
     "description": "Tugev täispuhutav kaitseala pehmendab kukkumisi. Juhendaja valib osalejale sobiva kiiruse ja peatab atraktsiooni kukkumise korral kohe.",
     "meters": "m",
     "space": "Tasane ja vaba paigaldusala",
@@ -88,7 +98,7 @@
     "title2": "RODEOKS?",
     "description": "Sinu üritus. Meie toome põnevuse. Anna teada kuupäev, asukoht ja kestus – täpsustame üksikasjad koos.",
     "formTitle": "RÄÄGI OMA ÜRITUSEST",
-    "formSubtitle": "Täida vorm ja koosta päring. Automaatne saatmine pole veel ühendatud.",
+    "formSubtitle": "Vali atraktsioon ja lisa ürituse andmed. Valmistame ette e-kirja, mille saad meile saata.",
     "name": "NIMI *",
     "namePlaceholder": "Kuidas sind kutsuda?",
     "contact": "TELEFON VÕI E-POST *",
@@ -101,31 +111,39 @@
     "typeCorporate": "Firmapidu / suvepäevad",
     "typeFestival": "Festival / suurüritus",
     "typeOther": "Muu",
-    "hours": "RENDI KESTUS (TUNDIDES)",
+    "hours": "PULLI RENDI KESTUS (TUNDIDES)",
     "notes": "LISATEAVE",
     "notesPlaceholder": "Mida peaksime veel teadma?",
     "estimateLabel": "ESIALGNE HIND",
     "estimateDelivery": "Tallinnas tasuta transport. Mujal kokkuleppel.",
-    "prepare": "KOOSTA PÄRING",
-    "submissionNote": "Päringu koostamine ei tähenda selle saatmist ega kinnitatud broneeringut.",
-    "draftTitle": "PÄRINGU MUSTAND ON VALMIS",
-    "copy": "KOPEERI PÄRING"
+    "prepare": "KOOSTA E-KIRI",
+    "submissionNote": "Pärast päringu koostamist ava e-post ja saada kiri ära. Broneeringu kinnitame eraldi.",
+    "draftTitle": "PÄRING ON KOOSTATUD",
+    "copy": "KOPEERI PÄRING",
+    "product": "ATRAKTSIOON",
+    "productBull": "Mehaaniline pull",
+    "productCastle": "Tuletõrje batuut",
+    "productBoth": "Mõlemad atraktsioonid",
+    "perDay": "päevas",
+    "castleNote": "Päevahind kehtib ka mõnetunnise rendi korral. Transpordi ja paigalduse lepime eraldi kokku.",
+    "castleEstimateLabel": "BATUUDI RENDIHIND",
+    "bothFestivalNote": "Pulli rendihinna ja kogusumma lepime eraldi kokku.",
+    "sendEmail": "AVA E-POST",
+    "emailHint": "Kiri avaneb sinu e-posti rakenduses. Ära unusta vajutada „Saada”."
   },
-  
-"footer": {
-  "description": "Mehaanilise pulli premium-rent Eestis. Tallinnas tasuta transport, mujal kokkuleppel.",
-  "top": "ÜLES",
-  "disclaimer": "Broneerimispäringu automaatne saatmine tuleb enne avaldamist ühendada. Fotodel on meie päris atraktsioon.",
-  "contactsTitle1": "TEKKIS KÜSIMUS?",
-  "contactsTitle2": "VÕTA MEIEGA ÜHENDUST.",
-  "contactsDescription": "Aitame valida sobiva rendiaja ja korraldada atraktsiooni sinu üritusele."
-},
+  "footer": {
+    "description": "Mehaanilise pulli ja tuletõrje kombobatuudi rent Eestis.",
+    "top": "ÜLES",
+    "contactsTitle1": "TEKKIS KÜSIMUS?",
+    "contactsTitle2": "VÕTA MEIEGA ÜHENDUST",
+    "contactsDescription": "Aitame valida sobiva rendiaja ja korraldada atraktsiooni sinu üritusele."
+  },
   "meta": {
-    "title": "RODEO EVENT — mehaanilise pulli rent Eestis",
-    "description": "RODEO EVENT — mehaanilise pulli premium-rent Eestis. Hinnad, transport, paigaldus, juhendaja ja päring."
+    "title": "RODEO EVENT — mehaanilise pulli ja batuudi rent Eestis",
+    "description": "Mehaanilise pulli ja tuletõrje kombobatuudi rent Eestis. Hinnad, tingimused ja rendipäring."
   },
   "request": {
-    "title": "RODEO EVENT — päringu mustand (saatmata)",
+    "title": "RODEO EVENT — rendipäring",
     "name": "Nimi",
     "contact": "Kontakt",
     "date": "Kuupäev",
@@ -137,7 +155,11 @@
     "notes": "Lisainfo",
     "transport": "Transport väljaspool Tallinna kokkuleppel.",
     "askPrice": "Kokkuleppel",
-    "copied": "Kopeeritud. Päring pole saadetud.",
-    "copyManually": "Tekst on valitud. Vajuta Ctrl+C."
+    "copied": "Tekst kopeeritud. Saada see meile e-postiga.",
+    "copyManually": "Tekst on valitud. Vajuta Ctrl+C.",
+    "product": "Atraktsioon",
+    "oneDay": "1 päev",
+    "castleTransport": "Batuudi transpordi ja paigalduse lepime eraldi kokku.",
+    "mailSubject": "RODEO EVENT — rendipäring"
   }
 }
