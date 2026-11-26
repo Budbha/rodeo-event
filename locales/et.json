@@ -118,6 +118,7 @@
     "estimateDelivery": "Tallinnas tasuta transport. Mujal kokkuleppel.",
     "prepare": "SAADA PÄRING",
     "sending": "SAATMINE...",
+    "sent": "SAADETUD",
     "submissionNote": "Päring saadetakse meie e-postile. Lõplik broneering kinnitatakse pärast detailide kooskõlastamist.",
     "successTitle": "PÄRING EDUKALT SAADETUD!",
     "successMessage": "Aitäh! Oleme saanud sinu päringu ja võtame peagi ühendust detailide täpsustamiseks.",

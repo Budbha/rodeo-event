@@ -1037,13 +1037,40 @@ section {
   margin-top:28px;
   width:100%;
   justify-content:space-between;
-  transition:opacity .2s ease
+  transition:background-color .3s ease, border-color .3s ease, opacity .2s ease;
+  position:relative;
 }
 
 .send-button:disabled {
-  opacity:.65;
+  opacity:.85;
   cursor:not-allowed;
-  pointer-events:none
+}
+
+.send-button.is-loading {
+  opacity:.9;
+  cursor:wait;
+}
+
+.send-button.is-success {
+  background:#237834 !important;
+  border-color:#237834 !important;
+  color:#ffffff !important;
+  pointer-events:none;
+}
+
+.button-spinner {
+  display:inline-block;
+  width:15px;
+  height:15px;
+  border:2px solid rgba(255,255,255,.3);
+  border-top-color:#ffffff;
+  border-radius:50%;
+  animation:button-spin .7s linear infinite;
+  vertical-align:middle;
+}
+
+@keyframes button-spin {
+  to { transform:rotate(360deg); }
 }
 
 .submission-note {
@@ -1056,7 +1083,13 @@ section {
 .booking-status {
   margin-top:25px;
   padding:22px 25px;
-  line-height:1.6
+  line-height:1.6;
+  animation:status-slide-in .35s cubic-bezier(.16,1,.3,1);
+}
+
+@keyframes status-slide-in {
+  from { opacity:0; transform:translateY(-8px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
 .booking-success {

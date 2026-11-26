@@ -25,11 +25,31 @@ export function setupBooking(i18n) {
   const errorBox = document.querySelector('#booking-error');
   const submitButton = form?.querySelector('button[type="submit"]');
   const submitButtonText = submitButton?.querySelector('[data-i18n="booking.prepare"]') || submitButton;
+  const submitButtonIcon = submitButton?.querySelector('span:last-child');
 
   const hoursField = hoursInput.closest('label');
   const translate = key => i18n.t(key);
   const isFestival = () => eventInput.value === 'festival';
   const formatPrice = amount => amount.toLocaleString(i18n.current === 'et' ? 'et-EE' : 'ru-RU') + ' €';
+
+  let successResetTimer = null;
+
+  function resetSubmitButton() {
+    if (successResetTimer) {
+      clearTimeout(successResetTimer);
+      successResetTimer = null;
+    }
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.classList.remove('is-loading', 'is-success');
+    }
+    if (submitButtonText) {
+      submitButtonText.textContent = translate('booking.prepare');
+    }
+    if (submitButtonIcon) {
+      submitButtonIcon.textContent = '↗︎';
+    }
+  }
 
   function getEstimate(product) {
     const castlePrice = formatPrice(CASTLE_DAY_RATE);
@@ -107,6 +127,9 @@ export function setupBooking(i18n) {
     if (result) result.hidden = true;
     if (successBox) successBox.hidden = true;
     if (errorBox) errorBox.hidden = true;
+    if (submitButton?.classList.contains('is-success')) {
+      resetSubmitButton();
+    }
   });
 
   document.querySelectorAll('[data-booking-product]').forEach(link => link.addEventListener('click', () => {
@@ -147,10 +170,18 @@ export function setupBooking(i18n) {
     if (successBox) successBox.hidden = true;
     if (errorBox) errorBox.hidden = true;
 
-    // Loading state
-    const originalText = submitButtonText ? submitButtonText.textContent : '';
-    if (submitButton) submitButton.disabled = true;
-    if (submitButtonText) submitButtonText.textContent = translate('booking.sending');
+    // 1. Enter Loading State
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add('is-loading');
+      submitButton.classList.remove('is-success');
+    }
+    if (submitButtonText) {
+      submitButtonText.textContent = translate('booking.sending');
+    }
+    if (submitButtonIcon) {
+      submitButtonIcon.innerHTML = '<span class="button-spinner" aria-hidden="true"></span>';
+    }
 
     const product = productInput.value;
     const productLabel = productInput.selectedOptions[0].textContent;
@@ -182,11 +213,15 @@ export function setupBooking(i18n) {
     };
 
     try {
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      // Smooth loading experience: at least 500ms so tactile feedback is clear
+      const [response] = await Promise.all([
+        fetch('/api/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }),
+        new Promise(resolve => setTimeout(resolve, 500)),
+      ]);
 
       const data = await response.json().catch(() => ({}));
 
@@ -194,18 +229,38 @@ export function setupBooking(i18n) {
         throw new Error(data.error || `HTTP ${response.status}`);
       }
 
-      // Success
+      // 2. Enter Success / Sent State
+      if (submitButton) {
+        submitButton.classList.remove('is-loading');
+        submitButton.classList.add('is-success');
+      }
+      if (submitButtonText) {
+        submitButtonText.textContent = translate('booking.sent');
+      }
+      if (submitButtonIcon) {
+        submitButtonIcon.textContent = '✓';
+      }
+
       if (successBox) successBox.hidden = false;
       form.reset();
       updateEstimate();
+
       if (successBox) {
         successBox.scrollIntoView({
           behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
           block: 'nearest',
         });
       }
+
+      // Return button back to normal after 5 seconds
+      successResetTimer = setTimeout(() => {
+        resetSubmitButton();
+      }, 5000);
+
     } catch (err) {
       console.warn('[RODEO Booking] API send failed, showing fallback draft & mailto:', err);
+      resetSubmitButton();
+
       // Fallback: show error message, copyable draft and direct mailto button
       if (errorBox) errorBox.hidden = false;
       if (result) result.hidden = false;
@@ -217,9 +272,6 @@ export function setupBooking(i18n) {
           block: 'nearest',
         });
       }
-    } finally {
-      if (submitButton) submitButton.disabled = false;
-      if (submitButtonText) submitButtonText.textContent = originalText;
     }
   });
 
@@ -240,7 +292,17 @@ export function setupBooking(i18n) {
     }
   });
 
-  // Switching the language updates the visible estimate without altering fields.
-  i18n.onChange(updateEstimate);
-  return {updateEstimate};
+  // Switching the language updates the visible estimate and button states
+  i18n.onChange(() => {
+    updateEstimate();
+    if (submitButton?.classList.contains('is-success')) {
+      if (submitButtonText) submitButtonText.textContent = translate('booking.sent');
+    } else if (submitButton?.classList.contains('is-loading')) {
+      if (submitButtonText) submitButtonText.textContent = translate('booking.sending');
+    } else {
+      if (submitButtonText) submitButtonText.textContent = translate('booking.prepare');
+    }
+  });
+
+  return {updateEstimate, resetSubmitButton};
 }
